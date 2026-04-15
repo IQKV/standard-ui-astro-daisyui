@@ -8,10 +8,7 @@ interface Props {
   description?: string;
 }
 
-const {
-  title = "IQ Key Value",
-  description = "Open source microservices platform for building scalable SaaS products",
-} = Astro.props;
+const { title = "MyApp", description = "A new Astro project" } = Astro.props;
 ---
 
 <!doctype html>
@@ -24,7 +21,7 @@ const {
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="flex flex-col min-h-screen" data-theme="light">
+  <body class="flex flex-col min-h-screen">
     <TopNav client:load />
     <main class="flex-1">
       <slot />

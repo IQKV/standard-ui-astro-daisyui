@@ -1,288 +1,111 @@
-# Node.js Deployment Guide
+# Node.js Deployment
 
-## Prerequisites
+The project uses Astro's **server** output mode with the `@astrojs/node` standalone adapter.  
+All pages explicitly set `export const prerender = true` to be statically pre-rendered at build time. Only the `/api/contact` endpoint is SSR (no prerender flag), handled by the Node.js server at runtime.
+
+## Requirements
 
 - Node.js >= 22.13.0
 - pnpm >= 10.33.0
 
+## Environment Variables
+
+Copy `.env.example` to `.env` and fill in the values:
+
+```bash
+PUBLIC_SITE_URL=https://example.com
+
+# Resend — https://resend.com/api-keys
+RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+RESEND_FROM=noreply@example.com   # must be a verified Resend sender domain
+RESEND_TO=you@example.com
+```
+
 ## Local Development
 
 ```bash
-# Install dependencies
 pnpm install
-
-# Start development server (http://localhost:4321)
-pnpm dev
-
-# Build for production
-pnpm build
-
-# Preview production build
-pnpm preview
+pnpm dev        # http://localhost:4321
 ```
 
 ## Production Build
 
-### Build Static Site
-
 ```bash
-# Type check and build
 pnpm build
-
-# Output directory: dist/
+# Output:
+#   dist/client/   — static assets (HTML, CSS, JS)
+#   dist/server/   — Node.js server entrypoint
 ```
 
-The build generates static HTML/CSS/JS files in the `dist/` directory.
+## Run the Server
 
-## Docker Deployment
+```bash
+pnpm start
+# Starts dist/server/entry.mjs on PORT (default 4321)
+```
 
-### Multi-Stage Dockerfile
+Override the port:
 
-Create `Dockerfile` in project root:
+```bash
+PORT=3000 pnpm start
+```
+
+## Docker
+
+Multi-stage build — compiles in a full Node image, runs in a slim one:
 
 ```dockerfile
 # Build stage
-FROM node:22.13-alpine AS builder
+FROM node:22-alpine AS builder
 
-# Install pnpm
 RUN corepack enable && corepack prepare pnpm@10.33.0 --activate
 
 WORKDIR /app
-
-# Copy package files
 COPY package.json pnpm-lock.yaml ./
-
-# Install dependencies
 RUN pnpm install --frozen-lockfile
 
-# Copy source code
 COPY . .
-
-# Build application
 RUN pnpm build
 
-# Production stage
-FROM nginx:alpine
+# Runtime stage
+FROM node:22-alpine
 
-# Copy built files
-COPY --from=builder /app/dist /usr/share/nginx/html
+WORKDIR /app
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package.json ./
 
-# Copy nginx config (optional)
-# COPY nginx.conf /etc/nginx/nginx.conf
+ENV HOST=0.0.0.0
+ENV PORT=4321
+EXPOSE 4321
 
-EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["node", "dist/server/entry.mjs"]
 ```
-
-### Build and Run Container
 
 ```bash
-# Build image
-docker build -t saas-landing-kit:latest .
-
-# Run container
-docker run -d -p 8080:80 --name saas-landing saas-landing-kit:latest
-
-# View logs
-docker logs saas-landing
-
-# Stop container
-docker stop saas-landing
-
-# Remove container
-docker rm saas-landing
+docker build -t myapp:latest .
+docker run -p 4321:4321 \
+  -e RESEND_API_KEY=re_xxx \
+  -e RESEND_FROM=noreply@example.com \
+  -e RESEND_TO=you@example.com \
+  myapp:latest
 ```
 
-### Docker Compose
-
-Create `docker-compose.yml`:
+## Docker Compose
 
 ```yaml
-version: "3.8"
-
 services:
   web:
     build: .
     ports:
-      - "8080:80"
-    restart: unless-stopped
+      - "4321:4321"
     environment:
-      - NODE_ENV=production
+      - RESEND_API_KEY=${RESEND_API_KEY}
+      - RESEND_FROM=${RESEND_FROM}
+      - RESEND_TO=${RESEND_TO}
+    restart: unless-stopped
 ```
-
-Run with Docker Compose:
 
 ```bash
-# Start services
-docker-compose up -d
-
-# View logs
-docker-compose logs -f
-
-# Stop services
-docker-compose down
-```
-
-## Node.js Server Deployment
-
-For serving with Node.js instead of nginx:
-
-### Using serve
-
-```bash
-# Install serve globally
-npm install -g serve
-
-# Serve dist directory
-serve -s dist -l 3000
-```
-
-### Using http-server
-
-```bash
-# Install http-server
-npm install -g http-server
-
-# Serve dist directory
-http-server dist -p 3000
-```
-
-### Custom Node Server
-
-Create `server.js`:
-
-```javascript
-import express from "express";
-import { fileURLToPath } from "url";
-import { dirname, join } from "path";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const app = express();
-const PORT = process.env.PORT || 3000;
-
-app.use(express.static(join(__dirname, "dist")));
-
-app.get("*", (req, res) => {
-  res.sendFile(join(__dirname, "dist", "index.html"));
-});
-
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
-```
-
-Add to `package.json`:
-
-```json
-{
-  "dependencies": {
-    "express": "^4.18.2"
-  },
-  "scripts": {
-    "start": "node server.js"
-  }
-}
-```
-
-Run:
-
-```bash
-pnpm install
-pnpm build
-pnpm start
-```
-
-## Environment Variables
-
-Create `.env` file:
-
-```bash
-PUBLIC_API_URL=https://api.example.com
-PUBLIC_AUTH_URL=https://auth.example.com
-```
-
-Access in Astro components:
-
-```javascript
-const apiUrl = import.meta.env.PUBLIC_API_URL;
-```
-
-## Production Checklist
-
-- [ ] Run `pnpm build` successfully
-- [ ] Test with `pnpm preview`
-- [ ] Configure environment variables
-- [ ] Set up SSL/TLS certificates
-- [ ] Configure CDN (optional)
-- [ ] Enable gzip/brotli compression
-- [ ] Set up monitoring and logging
-- [ ] Configure caching headers
-
-## Deployment Platforms
-
-### Vercel
-
-```bash
-# Install Vercel CLI
-npm i -g vercel
-
-# Deploy
-vercel
-```
-
-### Netlify
-
-```bash
-# Install Netlify CLI
-npm i -g netlify-cli
-
-# Deploy
-netlify deploy --prod
-```
-
-### AWS S3 + CloudFront
-
-```bash
-# Build
-pnpm build
-
-# Sync to S3
-aws s3 sync dist/ s3://your-bucket-name --delete
-
-# Invalidate CloudFront cache
-aws cloudfront create-invalidation --distribution-id YOUR_DIST_ID --paths "/*"
-```
-
-## Troubleshooting
-
-### Build Fails
-
-```bash
-# Clear cache and reinstall
-rm -rf node_modules .astro dist
-pnpm install
-pnpm build
-```
-
-### Port Already in Use
-
-```bash
-# Kill process on port 4321
-npx kill-port 4321
-
-# Or use different port
-pnpm dev --port 3000
-```
-
-### Docker Build Issues
-
-```bash
-# Build without cache
-docker build --no-cache -t saas-landing-kit:latest .
-
-# Check logs
-docker logs saas-landing
+docker compose up -d
 ```

@@ -1,104 +1,19 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { AnimatedHero } from "@/components/AnimatedHero";
-import { AnimatedCard } from "@/components/AnimatedCard";
-import { AnimatedSection } from "@/components/AnimatedSection";
-import {
-  SecurityLockIcon,
-  CreditCardIcon,
-  AnalyticsUpIcon,
-  RocketIcon,
-  Shield01Icon,
-  DollarSquareIcon,
-} from "@hugeicons/core-free-icons";
+
+export const prerender = true;
 ---
 
-<BaseLayout title="IQ Key Value - Enterprise Microservices Platform">
-  <!-- Hero Section -->
-  <AnimatedHero client:load />
-
-  <!-- Value Propositions -->
-  <div class="container mx-auto px-4">
-    <AnimatedSection client:load>
-      <section class="py-20">
-        <h2 class="text-4xl font-bold text-center mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-          Everything You Need to Scale
-        </h2>
-        <p class="text-center text-base-content/60 mb-12 text-lg">
-          Production-ready services that power your business from day one
+<BaseLayout title="MyApp" description="A new Astro project">
+  <section class="hero min-h-[80vh]">
+    <div class="hero-content text-center">
+      <div class="max-w-lg">
+        <h1 class="text-5xl font-bold">Hello, world!</h1>
+        <p class="py-6 text-base-content/70">
+          Your new Astro project is ready. Start building something great.
         </p>
-        <div class="grid md:grid-cols-3 gap-8">
-          <AnimatedCard
-            icon={SecurityLockIcon}
-            title="Identity & Access"
-            description="Multi-tenant authentication, role-based access control, and secure user management out of the box"
-            delay={0.1}
-            client:load
-          />
-          <AnimatedCard
-            icon={CreditCardIcon}
-            title="Payment Operations"
-            description="Accept payments, manage subscriptions, onboard merchants, and handle revenue sharing automatically"
-            delay={0.2}
-            client:load
-          />
-          <AnimatedCard
-            icon={AnalyticsUpIcon}
-            title="CRM & Sales"
-            description="Complete lead-to-customer pipeline with scoring, conversion tracking, and sales analytics"
-            delay={0.3}
-            client:load
-          />
-        </div>
-      </section>
-    </AnimatedSection>
-
-    <!-- Business Benefits -->
-    <AnimatedSection client:load delay={0.2}>
-      <section class="py-20 bg-gradient-to-br from-base-200 to-base-100 rounded-3xl">
-        <div class="max-w-5xl mx-auto px-4">
-          <h2 class="text-4xl font-bold text-center mb-4 bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent">
-            Built for Business Growth
-          </h2>
-          <p class="text-center text-base-content/60 mb-12 text-lg">
-            Accelerate your journey from startup to scale-up
-          </p>
-          <div class="grid md:grid-cols-2 gap-6">
-            <AnimatedCard
-              icon={RocketIcon}
-              title="Launch Faster"
-              description="Skip months of infrastructure development. Deploy essential business services in days."
-              delay={0.1}
-              size={20}
-              client:load
-            />
-            <AnimatedCard
-              icon={AnalyticsUpIcon}
-              title="Scale Confidently"
-              description="Multi-tenant architecture with data isolation, rate limiting, and fault tolerance built in."
-              delay={0.2}
-              size={20}
-              client:load
-            />
-            <AnimatedCard
-              icon={Shield01Icon}
-              title="Stay Compliant"
-              description="Security audit trails, data isolation, and encrypted credentials for regulated industries."
-              delay={0.3}
-              size={20}
-              client:load
-            />
-            <AnimatedCard
-              icon={DollarSquareIcon}
-              title="Reduce Costs"
-              description="Proven patterns and production-ready code eliminate expensive trial-and-error development."
-              delay={0.4}
-              size={20}
-              client:load
-            />
-          </div>
-        </div>
-      </section>
-    </AnimatedSection>
-  </div>
+        <a href="#" class="btn btn-primary">Get Started</a>
+      </div>
+    </div>
+  </section>
 </BaseLayout>

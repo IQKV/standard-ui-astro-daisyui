@@ -1,7 +1,7 @@
 {
-  "name": "@iqkv/standard-saas-landing-kit",
+  "name": "@iqkv/standard-ui-astro-daisyui",
   "version": "0.0.0",
-  "description": "A simple SaaS landing page kit with Astro, React, Tailwind CSS, and DaisyUI",
+  "description": "A minimal Astro boilerplate with Tailwind, DaisyUI, React islands",
   "license": "Apache-2.0",
   "type": "module",
   "scripts": {
@@ -16,10 +16,29 @@
     "node_modules:cleanup": "rm -rf node_modules",
     "prepare": "husky",
     "preview": "astro preview",
-    "release": "release-it --ci"
+    "release": "release-it --ci",
+    "start": "node dist/server/entry.mjs"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,astro}": [
+      "oxlint --type-aware",
+      "oxfmt --write"
+    ],
+    "*.{css,json,md}": [
+      "oxfmt --write"
+    ],
+    "package.json": [
+      "sort-package-json"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   },
   "dependencies": {
     "@astrojs/check": "^0.9.8",
+    "@astrojs/node": "^9.5.5",
     "@astrojs/react": "^5.0.3",
     "@astrojs/tailwind": "^6.0.2",
     "@hugeicons/core-free-icons": "^4.1.1",
@@ -29,6 +48,7 @@
     "framer-motion": "^12.38.0",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
+    "resend": "^6.11.0",
     "tailwindcss": "^3.4.19",
     "typescript": "^5.9.3",
     "zustand": "^5.0.12"
@@ -60,25 +80,8 @@
     "tsdown": "^0.21.8",
     "typescript-eslint": "^8.58.2"
   },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,astro}": [
-      "oxlint --type-aware",
-      "oxfmt --write"
-    ],
-    "*.{css,json,md}": [
-      "oxfmt --write"
-    ],
-    "package.json": [
-      "sort-package-json"
-    ]
-  },
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
-    }
-  },
+  "packageManager": "pnpm@10.33.0",
   "engines": {
     "node": ">=22.13.0"
-  },
-  "packageManager": "pnpm@10.33.0"
+  }
 }
