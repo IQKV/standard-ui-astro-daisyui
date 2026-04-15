@@ -46,6 +46,7 @@ local.properties
 .loadpath
 .factorypath
 /src/main/resources/rebel.xml
+.kiro
 
 # External tool builders
 .externalToolBuilders/**
