@@ -19,23 +19,6 @@
     "release": "release-it --ci",
     "start": "node dist/server/entry.mjs"
   },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,astro}": [
-      "oxlint --type-aware",
-      "oxfmt --write"
-    ],
-    "*.{css,json,md}": [
-      "oxfmt --write"
-    ],
-    "package.json": [
-      "sort-package-json"
-    ]
-  },
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
-    }
-  },
   "dependencies": {
     "@astrojs/check": "^0.9.8",
     "@astrojs/node": "^9.5.5",
@@ -75,14 +58,31 @@
     "oxlint": "^1.60.0",
     "oxlint-tsgolint": "^0.21.1",
     "prettier-plugin-astro": "^0.14.1",
-    "release-it": "^20.0.0",
+    "release-it": "^19.2.4",
     "release-it-pnpm": "^4.6.6",
     "sort-package-json": "^3.6.1",
     "tsdown": "^0.21.9",
     "typescript-eslint": "^8.58.2"
   },
-  "packageManager": "pnpm@10.33.0",
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,astro}": [
+      "oxlint --type-aware",
+      "oxfmt --write"
+    ],
+    "*.{css,json,md}": [
+      "oxfmt --write"
+    ],
+    "package.json": [
+      "sort-package-json"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
   "engines": {
     "node": ">=22.13.0"
-  }
+  },
+  "packageManager": "pnpm@10.33.0"
 }
