@@ -4,7 +4,7 @@ import tailwind from "@astrojs/tailwind";
 import node from "@astrojs/node";
 
 export default defineConfig({
-  site: "https://example.com",
+  site: import.meta.env.PUBLIC_SITE_URL ?? "https://example.com",
   integrations: [
     react(),
     tailwind({

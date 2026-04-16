@@ -1,0 +1,16 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+export const prerender = true;
+---
+
+<BaseLayout title="Server error" description="Something went wrong on our end.">
+  <section class="flex flex-col items-center justify-center flex-1 px-4 py-20 text-center animate-fade-in">
+    <p class="text-8xl font-bold text-error mb-4 animate-slide-up">500</p>
+    <h1 class="text-3xl font-bold mb-3 animate-slide-up">Something went wrong</h1>
+    <p class="text-base-content/60 mb-8 max-w-sm animate-slide-up">
+      An unexpected error occurred on our end. Please try again in a moment.
+    </p>
+    <a href="/" class="btn btn-primary animate-slide-up">Back to home</a>
+  </section>
+</BaseLayout>

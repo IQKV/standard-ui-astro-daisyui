@@ -1,0 +1,16 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+export const prerender = true;
+---
+
+<BaseLayout title="Page not found" description="The page you're looking for doesn't exist.">
+  <section class="flex flex-col items-center justify-center flex-1 px-4 py-20 text-center animate-fade-in">
+    <p class="text-8xl font-bold text-primary mb-4 animate-slide-up">404</p>
+    <h1 class="text-3xl font-bold mb-3 animate-slide-up">Page not found</h1>
+    <p class="text-base-content/60 mb-8 max-w-sm animate-slide-up">
+      The page you're looking for doesn't exist or has been moved.
+    </p>
+    <a href="/" class="btn btn-primary animate-slide-up">Back to home</a>
+  </section>
+</BaseLayout>
