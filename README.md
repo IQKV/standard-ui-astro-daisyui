@@ -102,17 +102,17 @@ src/
 
 ## Scripts
 
-| Command                   | Description                          |
-| ------------------------- | ------------------------------------ |
-| `pnpm dev`                | Start dev server at localhost:4321   |
-| `pnpm build`              | Type-check + production build        |
-| `pnpm preview`            | Preview the production build locally |
-| `pnpm start`              | Run the built Node.js server         |
-| `pnpm lint`               | Run ESLint                           |
-| `pnpm lint:eslint:fix`    | Run ESLint with auto-fix             |
-| `pnpm formatter:write`    | Format all files with oxfmt          |
-| `pnpm formatter:check`    | Check formatting without writing     |
-| `pnpm release`            | Cut a release with release-it        |
+| Command                | Description                          |
+| ---------------------- | ------------------------------------ |
+| `pnpm dev`             | Start dev server at localhost:4321   |
+| `pnpm build`           | Type-check + production build        |
+| `pnpm preview`         | Preview the production build locally |
+| `pnpm start`           | Run the built Node.js server         |
+| `pnpm lint`            | Run ESLint                           |
+| `pnpm lint:eslint:fix` | Run ESLint with auto-fix             |
+| `pnpm formatter:write` | Format all files with oxfmt          |
+| `pnpm formatter:check` | Check formatting without writing     |
+| `pnpm release`         | Cut a release with release-it        |
 
 ## Environment Variables
 
