@@ -12,6 +12,10 @@ export default defineConfig({
     }),
   ],
   output: "server",
+  // TODO: re-enable once ingress propagates correct Origin/Host headers
+  security: {
+    checkOrigin: false,
+  },
   adapter: node({
     mode: "standalone",
   }),
