@@ -85,44 +85,11 @@ export const onRequest = defineMiddleware(async (context, next) => {
       });
     }
 
-    // --- CSRF: verify Origin/Referer matches the server host ---------------
-    const origin = request.headers.get("origin");
-    const referer = request.headers.get("referer");
-    const host = request.headers.get("host");
-
-    const sourceHeader = origin ?? referer;
-    if (!sourceHeader || !host) {
-      logger.warn("CSRF check failed — missing origin/referer", { ip, path: url.pathname });
-      return new Response(null, {
-        status: 303,
-        headers: {
-          Location: `/contact?error=${encodeURIComponent("Request could not be verified. Please try again.")}`,
-        },
-      });
-    }
-
-    let sourceHost: string;
-    try {
-      sourceHost = new URL(sourceHeader).host;
-    } catch {
-      logger.warn("CSRF check failed — unparseable origin/referer", { ip, sourceHeader });
-      return new Response(null, {
-        status: 303,
-        headers: {
-          Location: `/contact?error=${encodeURIComponent("Request could not be verified. Please try again.")}`,
-        },
-      });
-    }
-
-    if (sourceHost !== host) {
-      logger.warn("CSRF check failed — host mismatch", { ip, sourceHost, host });
-      return new Response(null, {
-        status: 303,
-        headers: {
-          Location: `/contact?error=${encodeURIComponent("Request could not be verified. Please try again.")}`,
-        },
-      });
-    }
+    // --- CSRF: temporarily disabled ---------------------------------------
+    // TODO: re-enable once ingress host headers are correctly propagated
+    // const origin = request.headers.get("origin");
+    // const referer = request.headers.get("referer");
+    // const host = request.headers.get("host");
   }
 
   return response;
