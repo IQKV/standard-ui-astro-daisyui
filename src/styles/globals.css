@@ -2,6 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * DaisyUI v5 custom theme override for Tailwind v3.
+ * @plugin syntax requires Tailwind v4 — with v3 we override CSS variables directly.
+ * Targets the built-in "light" theme used via data-theme="light" on <html>.
+ */
+[data-theme="light"] {
+  /* Primary: indigo #6366f1 */
+  --color-primary: oklch(0.585 0.233 277);
+  --color-primary-content: oklch(1 0 0); /* white */
+
+  /* Secondary: purple #8b5cf6 */
+  --color-secondary: oklch(0.606 0.247 303);
+  --color-secondary-content: oklch(1 0 0);
+
+  /* Accent: green #10b981 */
+  --color-accent: oklch(0.696 0.17 162);
+  --color-accent-content: oklch(1 0 0);
+
+  /* Neutral: #1f2937 */
+  --color-neutral: oklch(0.278 0.029 256);
+  --color-neutral-content: oklch(1 0 0);
+
+  /* Base */
+  --color-base-100: oklch(1 0 0);
+  --color-base-200: oklch(0.984 0.003 247);
+  --color-base-300: oklch(0.968 0.007 247);
+  --color-base-content: oklch(0.145 0.016 256);
+
+  /* Semantic */
+  --color-info: oklch(0.623 0.214 259);
+  --color-info-content: oklch(1 0 0);
+  --color-success: oklch(0.696 0.17 162);
+  --color-success-content: oklch(1 0 0);
+  --color-warning: oklch(0.769 0.188 70);
+  --color-warning-content: oklch(1 0 0);
+  --color-error: oklch(0.628 0.258 29);
+  --color-error-content: oklch(1 0 0);
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;

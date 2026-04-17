@@ -26,36 +26,4 @@ export default {
     },
   },
   plugins: [require("daisyui")],
-  daisyui: {
-    themes: [
-      {
-        light: {
-          primary: "#6366f1", // Modern indigo
-          "primary-content": "#ffffff",
-          secondary: "#8b5cf6", // Vibrant purple
-          "secondary-content": "#ffffff",
-          accent: "#10b981", // Fresh green
-          "accent-content": "#ffffff",
-          neutral: "#1f2937",
-          "neutral-content": "#ffffff",
-          "base-100": "#ffffff",
-          "base-200": "#f9fafb",
-          "base-300": "#f3f4f6",
-          "base-content": "#111827",
-          info: "#3b82f6",
-          "info-content": "#ffffff",
-          success: "#10b981",
-          "success-content": "#ffffff",
-          warning: "#f59e0b",
-          "warning-content": "#ffffff",
-          error: "#ef4444",
-          "error-content": "#ffffff",
-        },
-      },
-    ],
-    base: true,
-    styled: true,
-    utils: true,
-    logs: false,
-  },
 };
