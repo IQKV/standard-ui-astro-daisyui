@@ -1,5 +1,5 @@
 {
-  "name": "@iqkv/standard-ui-astro-daisyui",
+  "name": "@iqkv/standard-ui-blank-astro-daisyui-ssr",
   "version": "0.0.0",
   "description": "A minimal Astro boilerplate with Tailwind, DaisyUI, React islands",
   "license": "Apache-2.0",

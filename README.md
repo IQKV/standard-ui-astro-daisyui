@@ -6,7 +6,7 @@
 > - Manage issues with **20 issue labels**.
 > - Make _community healthier_ with all the guides like code of conduct, contributing, support, security...
 > - Learn more with the [official GitHub guide on creating repositories from a template](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template).
-> - To start using it, click **[Use this template](https://github.com/IQKV/standard-ui-astro-daisyui/generate)** to create your new repository.
+> - To start using it, click **[Use this template](https://github.com/IQKV/standard-ui-blank-astro-daisyui-ssr/generate)** to create your new repository.
 
 ---
 
@@ -22,7 +22,7 @@ This template provides a standardized foundation for developing web applications
 
 To use this template for your own project:
 
-1. Click the **[Use this template](https://github.com/IQKV/standard-ui-astro-daisyui/generate)** button at the top of the repository
+1. Click the **[Use this template](https://github.com/IQKV/standard-ui-blank-astro-daisyui-ssr/generate)** button at the top of the repository
 2. Name your repository and provide a description
 3. Choose the repository visibility (public or private)
 4. Click **Create repository from template**
@@ -65,7 +65,7 @@ After creating your repository:
 
 ```bash
 # Clone the repository
-git clone https://github.com/IQKV/standard-ui-astro-daisyui.git my-app
+git clone https://github.com/IQKV/standard-ui-blank-astro-daisyui-ssr.git my-app
 
 # Navigate to project directory
 cd my-app
