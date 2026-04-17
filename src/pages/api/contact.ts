@@ -31,9 +31,9 @@ export const POST: APIRoute = async ({ request, redirect }) => {
 
   if (!parsed.success) {
     // Surface the first field-level Zod message — these are safe, user-facing strings.
-    const firstError = parsed.error.errors[0]?.message ?? "Invalid input.";
+    const firstError = parsed.error.issues[0]?.message ?? "Invalid input.";
     logger.warn("Contact form validation failed", {
-      issues: parsed.error.errors.map((e) => ({ path: e.path, message: e.message })),
+      issues: parsed.error.issues.map((e) => ({ path: e.path, message: e.message })),
     });
     // Pass field values back so the form can repopulate them.
     const params = new URLSearchParams({

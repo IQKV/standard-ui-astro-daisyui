@@ -20,7 +20,9 @@ function assertEnv() {
   });
 
   if (!result.success) {
-    const issues = result.error.errors.map((e) => `  ${e.path[0]}: ${e.message}`).join("\n");
+    const issues = result.error.issues
+      .map((e) => `  ${String(e.path[0])}: ${e.message}`)
+      .join("\n");
     throw new Error(
       `Environment configuration error:\n${issues}\n\nCopy .env.example to .env and fill in the values.`,
     );
