@@ -43,7 +43,7 @@ const prevMessage = Astro.url.searchParams.get("message") ?? "";
       <!-- Card -->
       <div class="card bg-base-100 border border-base-300 shadow-sm animate-slide-up">
         <div class="card-body gap-5">
-          <form action="/api/contact" method="POST" class="flex flex-col gap-5" novalidate>
+          <form id="contact-form" action="/api/contact" method="POST" class="flex flex-col gap-5" novalidate>
 
             <!-- Name -->
             <fieldset class="fieldset">
@@ -51,22 +51,28 @@ const prevMessage = Astro.url.searchParams.get("message") ?? "";
               <input
                 type="text"
                 name="name"
+                id="field-name"
                 placeholder="Jane Smith"
                 value={prevName}
                 class="input input-bordered w-full focus:input-primary transition-colors"
+                aria-describedby="error-name"
               />
+              <p id="error-name" class="text-error text-sm mt-1 hidden"></p>
             </fieldset>
 
             <!-- Email -->
             <fieldset class="fieldset">
               <legend class="fieldset-legend text-sm font-medium text-base-content/80">Email</legend>
               <input
-                type="text"
+                type="email"
                 name="email"
+                id="field-email"
                 placeholder="jane@example.com"
                 value={prevEmail}
                 class="input input-bordered w-full focus:input-primary transition-colors"
+                aria-describedby="error-email"
               />
+              <p id="error-email" class="text-error text-sm mt-1 hidden"></p>
             </fieldset>
 
             <!-- Message -->
@@ -74,10 +80,13 @@ const prevMessage = Astro.url.searchParams.get("message") ?? "";
               <legend class="fieldset-legend text-sm font-medium text-base-content/80">Message</legend>
               <textarea
                 name="message"
+                id="field-message"
                 rows="5"
                 placeholder="How can we help you?"
                 class="textarea textarea-bordered w-full focus:textarea-primary transition-colors resize-none leading-relaxed"
+                aria-describedby="error-message"
               >{prevMessage}</textarea>
+              <p id="error-message" class="text-error text-sm mt-1 hidden"></p>
             </fieldset>
 
             <div class="card-actions pt-1">
@@ -90,6 +99,64 @@ const prevMessage = Astro.url.searchParams.get("message") ?? "";
             </div>
 
           </form>
+
+          <script>
+            const form = document.getElementById("contact-form") as HTMLFormElement;
+
+            function showError(id: string, msg: string) {
+              const el = document.getElementById(id)!;
+              el.textContent = msg;
+              el.classList.remove("hidden");
+            }
+
+            function clearError(id: string) {
+              const el = document.getElementById(id)!;
+              el.textContent = "";
+              el.classList.add("hidden");
+            }
+
+            function validateEmail(value: string) {
+              return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+            }
+
+            form.addEventListener("submit", (e) => {
+              let valid = true;
+
+              const name = (document.getElementById("field-name") as HTMLInputElement).value.trim();
+              const email = (document.getElementById("field-email") as HTMLInputElement).value.trim();
+              const message = (document.getElementById("field-message") as HTMLTextAreaElement).value.trim();
+
+              clearError("error-name");
+              clearError("error-email");
+              clearError("error-message");
+
+              if (!name) {
+                showError("error-name", "Name is required");
+                valid = false;
+              } else if (name.length > 100) {
+                showError("error-name", "Name must be 100 characters or fewer");
+                valid = false;
+              }
+
+              if (!email) {
+                showError("error-email", "Email is required");
+                valid = false;
+              } else if (!validateEmail(email)) {
+                showError("error-email", "Enter a valid email address");
+                valid = false;
+              }
+
+              if (!message) {
+                showError("error-message", "Message is required");
+                valid = false;
+              } else if (message.length > 5000) {
+                showError("error-message", "Message must be 5000 characters or fewer");
+                valid = false;
+              }
+
+              if (!valid) e.preventDefault();
+            });
+          </script>
         </div>
       </div>
 

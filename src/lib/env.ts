@@ -14,9 +14,9 @@ const envSchema = z.object({
 
 function assertEnv() {
   const result = envSchema.safeParse({
-    RESEND_API_KEY: import.meta.env.RESEND_API_KEY,
-    RESEND_FROM: import.meta.env.RESEND_FROM,
-    RESEND_TO: import.meta.env.RESEND_TO,
+    RESEND_API_KEY: process.env.RESEND_API_KEY,
+    RESEND_FROM: process.env.RESEND_FROM,
+    RESEND_TO: process.env.RESEND_TO,
   });
 
   if (!result.success) {
