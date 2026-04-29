@@ -20,7 +20,7 @@
     "start": "node dist/server/entry.mjs"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.8",
+    "@astrojs/check": "^0.9.9",
     "@astrojs/node": "^10.0.6",
     "@astrojs/react": "^5.0.4",
     "@astrojs/tailwind": "^6.0.2",
