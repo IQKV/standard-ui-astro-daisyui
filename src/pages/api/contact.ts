@@ -5,6 +5,7 @@ import { Resend } from "resend";
 import { contactSchema } from "@/lib/schemas/contact";
 import { env } from "@/lib/env";
 import { logger } from "@/lib/logger";
+import { sanitizeEmail, sanitizeMessage, sanitizeName } from "@/lib/sanitize";
 
 const resend = new Resend(env.RESEND_API_KEY);
 
@@ -22,11 +23,17 @@ export const POST: APIRoute = async ({ request, redirect }) => {
     return redirect(`/contact?error=${encodeURIComponent(SEND_FAILURE_MSG)}`, 303);
   }
 
-  // --- 2. Validate with Zod ----------------------------------------------
+  // --- 2. Validate with Zod (sanitization is applied inside the schema) ----
+  // Pre-sanitize raw values so they are safe to echo back in the redirect URL
+  // even when validation fails (e.g. message too long after stripping HTML).
+  const rawName = sanitizeName(String(form.get("name") ?? ""));
+  const rawEmail = sanitizeEmail(String(form.get("email") ?? ""));
+  const rawMessage = sanitizeMessage(String(form.get("message") ?? ""));
+
   const parsed = contactSchema.safeParse({
-    name: String(form.get("name") ?? "").trim(),
-    email: String(form.get("email") ?? "").trim(),
-    message: String(form.get("message") ?? "").trim(),
+    name: rawName,
+    email: rawEmail,
+    message: rawMessage,
   });
 
   if (!parsed.success) {
@@ -35,12 +42,12 @@ export const POST: APIRoute = async ({ request, redirect }) => {
     logger.warn("Contact form validation failed", {
       issues: parsed.error.issues.map((e) => ({ path: e.path, message: e.message })),
     });
-    // Pass field values back so the form can repopulate them.
+    // Pass sanitized field values back so the form can repopulate them.
     const params = new URLSearchParams({
       error: firstError,
-      name: String(form.get("name") ?? "").trim(),
-      email: String(form.get("email") ?? "").trim(),
-      message: String(form.get("message") ?? "").trim(),
+      name: rawName,
+      email: rawEmail,
+      message: rawMessage,
     });
     return redirect(`/contact?${params.toString()}`, 303);
   }
