@@ -13,13 +13,13 @@ importers:
         version: 0.9.9(prettier-plugin-astro@0.14.1)(prettier@3.8.3)(typescript@6.0.3)
       '@astrojs/node':
         specifier: ^10.0.6
-        version: 10.0.6(astro@6.2.2(@types/node@22.19.11)(jiti@1.21.7)(rollup@4.60.3)(yaml@2.8.4))
+        version: 10.0.6(astro@6.3.0(@types/node@22.19.11)(jiti@1.21.7)(rollup@4.60.3)(yaml@2.8.4))
       '@astrojs/react':
         specifier: ^5.0.4
         version: 5.0.4(@types/node@22.19.11)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(jiti@1.21.7)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(yaml@2.8.4)
       '@astrojs/tailwind':
         specifier: ^6.0.2
-        version: 6.0.2(astro@6.2.2(@types/node@22.19.11)(jiti@1.21.7)(rollup@4.60.3)(yaml@2.8.4))(tailwindcss@3.4.19(yaml@2.8.4))
+        version: 6.0.2(astro@6.3.0(@types/node@22.19.11)(jiti@1.21.7)(rollup@4.60.3)(yaml@2.8.4))(tailwindcss@3.4.19(yaml@2.8.4))
       '@hugeicons/core-free-icons':
         specifier: ^4.1.1
         version: 4.1.1
@@ -27,8 +27,8 @@ importers:
         specifier: ^1.1.6
         version: 1.1.6(react@19.2.5)
       astro:
-        specifier: ^6.2.2
-        version: 6.2.2(@types/node@22.19.11)(jiti@1.21.7)(rollup@4.60.3)(yaml@2.8.4)
+        specifier: ^6.3.0
+        version: 6.3.0(@types/node@22.19.11)(jiti@1.21.7)(rollup@4.60.3)(yaml@2.8.4)
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -202,8 +202,8 @@ packages:
       astro: ^3.0.0 || ^4.0.0 || ^5.0.0
       tailwindcss: ^3.0.24
 
-  '@astrojs/telemetry@3.3.1':
-    resolution: {integrity: sha512-7fcIxXS9J4ls5tr8b3ww9rbAIz2+HrhNJYZdkAhhB4za/I5IZ/60g+Bs8q7zwG0tOIZfNB4JWhVJ1Qkl/OrNCw==}
+  '@astrojs/telemetry@3.3.2':
+    resolution: {integrity: sha512-j8DNruA8ors99Al39RYZPJK4DC1bKkoNm93mAMuBhY9TCNC4R8n1q7ovFnJ5qhGh5Lsh7pa1gpQVpYpsJPeTHQ==}
     engines: {node: 18.20.8 || ^20.3.0 || >=22.0.0}
 
   '@astrojs/yaml2ts@0.2.3':
@@ -1660,6 +1660,9 @@ packages:
   '@types/estree@1.0.8':
     resolution: {integrity: sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w==}
 
+  '@types/estree@1.0.9':
+    resolution: {integrity: sha512-GhdPgy1el4/ImP05X05Uw4cw2/M93BCUmnEvWZNStlCzEKME4Fkk+YpoA5OiHNQmoS7Cafb8Xa3Pya8m1Qrzeg==}
+
   '@types/hast@3.0.4':
     resolution: {integrity: sha512-WPs+bbQw5aCj+x6laNGWLH3wviHtoCv/P3+otBhbOhJgG8qtpdAMlTCxLtsTWA7LH1Oh/bFCHsBn0TPS5m30EQ==}
 
@@ -1761,9 +1764,8 @@ packages:
     resolution: {integrity: sha512-NwjLUnGy8/Zfx23fl50tRC8rYaYnM52xNRYFAXvmiil9yh1+K6aRVQMnzW6gQB/1DLgWt977lYQn7C+wtgXZiA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@ungap/structured-clone@1.3.0':
-    resolution: {integrity: sha512-WmoN8qaIAo7WTYWbAZuG8PYEhn5fkz7dZrqTBZ7dtt//lL2Gwms1IcnQ5yHqjDfX8Ft5j4YzDM23f87zBfDe9g==}
-    deprecated: Potential CWE-502 - Update to 1.3.1 or higher
+  '@ungap/structured-clone@1.3.1':
+    resolution: {integrity: sha512-mUFwbeTqrVgDQxFveS+df2yfap6iuP20NAKAsBt5jDEoOTDew+zwLAOilHCeQJOVSvmgCX4ogqIrA0mnyr08yQ==}
 
   '@vitejs/plugin-react@5.2.0':
     resolution: {integrity: sha512-YmKkfhOAi3wsB1PhJq5Scj3GXMn3WvtQ/JC0xoopuHoXSdmtdStOpFrYaT1kie2YgFBcIe64ROzMYRjCrYOdYw==}
@@ -1895,8 +1897,8 @@ packages:
     resolution: {integrity: sha512-+QDcgc7e+au6EZ0YjMmRRjNoQo5bDMlaR45aWDoFsuxQTCM9qmCHRoiKJPELgckJ8Wmr7vcfpa9eCDHBFh6G4w==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  astro@6.2.2:
-    resolution: {integrity: sha512-zkne2lZU+iTZPBK8F4gbMfrw5f11bT4VXiBxcdFHcPvYyH+Hox7V1sZu97RDpvwmHi+wQ0efKv89KY5744a0jQ==}
+  astro@6.3.0:
+    resolution: {integrity: sha512-yhDelVblNzQE4mjS0s27T9BZuAlfRCy+qHk6IlMgSr+ADG5QNpyPkroJAVCFRH08Nf2VhDM5dz6n4GWiTB9TlQ==}
     engines: {node: '>=22.12.0', npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -4739,6 +4741,46 @@ packages:
       yaml:
         optional: true
 
+  vite@7.3.3:
+    resolution: {integrity: sha512-/4XH147Ui7OGTjg3HbdWe5arnZQSbfuRzdr9Ec7TQi5I7R+ir0Rlc9GIvD4v0XZurELqA035KVXJXpR61xhiTA==}
+    engines: {node: ^20.19.0 || >=22.12.0}
+    hasBin: true
+    peerDependencies:
+      '@types/node': ^20.19.0 || >=22.12.0
+      jiti: '>=1.21.0'
+      less: ^4.0.0
+      lightningcss: ^1.21.0
+      sass: ^1.70.0
+      sass-embedded: ^1.70.0
+      stylus: '>=0.54.8'
+      sugarss: ^5.0.0
+      terser: ^5.16.0
+      tsx: ^4.8.1
+      yaml: ^2.4.2
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+      jiti:
+        optional: true
+      less:
+        optional: true
+      lightningcss:
+        optional: true
+      sass:
+        optional: true
+      sass-embedded:
+        optional: true
+      stylus:
+        optional: true
+      sugarss:
+        optional: true
+      terser:
+        optional: true
+      tsx:
+        optional: true
+      yaml:
+        optional: true
+
   vitefu@1.1.3:
     resolution: {integrity: sha512-ub4okH7Z5KLjb6hDyjqrGXqWtWvoYdU3IGm/NorpgHncKoLTCfRIbvlhBm7r0YstIaQRYlp4yEbFqDcKSzXSSg==}
     peerDependencies:
@@ -5061,10 +5103,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/node@10.0.6(astro@6.2.2(@types/node@22.19.11)(jiti@1.21.7)(rollup@4.60.3)(yaml@2.8.4))':
+  '@astrojs/node@10.0.6(astro@6.3.0(@types/node@22.19.11)(jiti@1.21.7)(rollup@4.60.3)(yaml@2.8.4))':
     dependencies:
       '@astrojs/internal-helpers': 0.9.0
-      astro: 6.2.2(@types/node@22.19.11)(jiti@1.21.7)(rollup@4.60.3)(yaml@2.8.4)
+      astro: 6.3.0(@types/node@22.19.11)(jiti@1.21.7)(rollup@4.60.3)(yaml@2.8.4)
       send: 1.2.1
       server-destroy: 1.0.1
     transitivePeerDependencies:
@@ -5099,9 +5141,9 @@ snapshots:
       - tsx
       - yaml
 
-  '@astrojs/tailwind@6.0.2(astro@6.2.2(@types/node@22.19.11)(jiti@1.21.7)(rollup@4.60.3)(yaml@2.8.4))(tailwindcss@3.4.19(yaml@2.8.4))':
+  '@astrojs/tailwind@6.0.2(astro@6.3.0(@types/node@22.19.11)(jiti@1.21.7)(rollup@4.60.3)(yaml@2.8.4))(tailwindcss@3.4.19(yaml@2.8.4))':
     dependencies:
-      astro: 6.2.2(@types/node@22.19.11)(jiti@1.21.7)(rollup@4.60.3)(yaml@2.8.4)
+      astro: 6.3.0(@types/node@22.19.11)(jiti@1.21.7)(rollup@4.60.3)(yaml@2.8.4)
       autoprefixer: 10.5.0(postcss@8.5.14)
       postcss: 8.5.14
       postcss-load-config: 4.0.2(postcss@8.5.14)
@@ -5109,10 +5151,9 @@ snapshots:
     transitivePeerDependencies:
       - ts-node
 
-  '@astrojs/telemetry@3.3.1':
+  '@astrojs/telemetry@3.3.2':
     dependencies:
       ci-info: 4.4.0
-      dlv: 1.1.3
       dset: 3.1.4
       is-docker: 4.0.0
       is-wsl: 3.1.1
@@ -6104,7 +6145,7 @@ snapshots:
 
   '@rollup/pluginutils@5.3.0(rollup@4.60.3)':
     dependencies:
-      '@types/estree': 1.0.8
+      '@types/estree': 1.0.9
       estree-walker: 2.0.2
       picomatch: 4.0.4
     optionalDependencies:
@@ -6275,6 +6316,8 @@ snapshots:
 
   '@types/estree@1.0.8': {}
 
+  '@types/estree@1.0.9': {}
+
   '@types/hast@3.0.4':
     dependencies:
       '@types/unist': 3.0.3
@@ -6408,7 +6451,7 @@ snapshots:
       '@typescript-eslint/types': 8.59.2
       eslint-visitor-keys: 5.0.1
 
-  '@ungap/structured-clone@1.3.0': {}
+  '@ungap/structured-clone@1.3.1': {}
 
   '@vitejs/plugin-react@5.2.0(vite@7.3.2(@types/node@22.19.11)(jiti@1.21.7)(yaml@2.8.4))':
     dependencies:
@@ -6568,12 +6611,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  astro@6.2.2(@types/node@22.19.11)(jiti@1.21.7)(rollup@4.60.3)(yaml@2.8.4):
+  astro@6.3.0(@types/node@22.19.11)(jiti@1.21.7)(rollup@4.60.3)(yaml@2.8.4):
     dependencies:
       '@astrojs/compiler': 4.0.0
       '@astrojs/internal-helpers': 0.9.0
       '@astrojs/markdown-remark': 7.1.1
-      '@astrojs/telemetry': 3.3.1
+      '@astrojs/telemetry': 3.3.2
       '@capsizecss/unpack': 4.0.0
       '@clack/prompts': 1.3.0
       '@oslojs/encoding': 1.1.0
@@ -6620,8 +6663,8 @@ snapshots:
       unist-util-visit: 5.1.0
       unstorage: 1.17.5
       vfile: 6.0.3
-      vite: 7.3.2(@types/node@22.19.11)(jiti@1.21.7)(yaml@2.8.4)
-      vitefu: 1.1.3(vite@7.3.2(@types/node@22.19.11)(jiti@1.21.7)(yaml@2.8.4))
+      vite: 7.3.3(@types/node@22.19.11)(jiti@1.21.7)(yaml@2.8.4)
+      vitefu: 1.1.3(vite@7.3.3(@types/node@22.19.11)(jiti@1.21.7)(yaml@2.8.4))
       xxhash-wasm: 1.1.0
       yargs-parser: 22.0.0
       zod: 4.4.3
@@ -7425,7 +7468,7 @@ snapshots:
 
   estree-walker@3.0.3:
     dependencies:
-      '@types/estree': 1.0.8
+      '@types/estree': 1.0.9
 
   esutils@2.0.3: {}
 
@@ -7780,7 +7823,7 @@ snapshots:
     dependencies:
       '@types/hast': 3.0.4
       '@types/unist': 3.0.3
-      '@ungap/structured-clone': 1.3.0
+      '@ungap/structured-clone': 1.3.1
       hast-util-from-parse5: 8.0.3
       hast-util-to-parse5: 8.0.1
       html-void-elements: 3.0.0
@@ -8275,7 +8318,7 @@ snapshots:
     dependencies:
       '@types/hast': 3.0.4
       '@types/mdast': 4.0.4
-      '@ungap/structured-clone': 1.3.0
+      '@ungap/structured-clone': 1.3.1
       devlop: 1.1.0
       micromark-util-sanitize-uri: 2.0.1
       trim-lines: 3.0.1
@@ -9883,9 +9926,23 @@ snapshots:
       jiti: 1.21.7
       yaml: 2.8.4
 
-  vitefu@1.1.3(vite@7.3.2(@types/node@22.19.11)(jiti@1.21.7)(yaml@2.8.4)):
+  vite@7.3.3(@types/node@22.19.11)(jiti@1.21.7)(yaml@2.8.4):
+    dependencies:
+      esbuild: 0.27.7
+      fdir: 6.5.0(picomatch@4.0.4)
+      picomatch: 4.0.4
+      postcss: 8.5.14
+      rollup: 4.60.3
+      tinyglobby: 0.2.16
     optionalDependencies:
-      vite: 7.3.2(@types/node@22.19.11)(jiti@1.21.7)(yaml@2.8.4)
+      '@types/node': 22.19.11
+      fsevents: 2.3.3
+      jiti: 1.21.7
+      yaml: 2.8.4
+
+  vitefu@1.1.3(vite@7.3.3(@types/node@22.19.11)(jiti@1.21.7)(yaml@2.8.4)):
+    optionalDependencies:
+      vite: 7.3.3(@types/node@22.19.11)(jiti@1.21.7)(yaml@2.8.4)
 
   volar-service-css@0.0.70(@volar/language-service@2.4.28):
     dependencies:
