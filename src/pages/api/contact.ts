@@ -49,8 +49,14 @@ export const POST: APIRoute = async ({ request, redirect }) => {
 
   // --- 3. Send email via Resend ------------------------------------------
   try {
+    // Build the "From" address — use display name when configured.
+    // Resend accepts both "email@example.com" and "Name <email@example.com>".
+    const fromAddress = env.RESEND_FROM_NAME
+      ? `${env.RESEND_FROM_NAME} <${env.RESEND_FROM}>`
+      : env.RESEND_FROM;
+
     const { error: sendError } = await resend.emails.send({
-      from: env.RESEND_FROM,
+      from: fromAddress,
       to: env.RESEND_TO,
       replyTo: email,
       subject: `Contact: ${name}`,
