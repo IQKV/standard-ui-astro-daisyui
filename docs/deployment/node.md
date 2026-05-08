@@ -6,7 +6,7 @@ All pages explicitly set `export const prerender = true` to be statically pre-re
 ## Requirements
 
 - Node.js >= 22.13.0
-- pnpm >= 10.33.2
+- pnpm >= 11.0.8
 
 ## Environment Variables
 
@@ -58,7 +58,7 @@ Multi-stage build — compiles in a full Node image, runs in a slim one:
 # Build stage
 FROM node:22-alpine AS builder
 
-RUN corepack enable && corepack prepare pnpm@10.33.2 --activate
+RUN corepack enable && corepack prepare pnpm@11.0.8 --activate
 
 WORKDIR /app
 COPY package.json pnpm-lock.yaml ./

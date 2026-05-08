@@ -58,7 +58,7 @@ After creating your repository:
 ## Prerequisites
 
 - Node.js >= 22.13.0
-- pnpm >= 10.33.2
+- pnpm >= 11.0.8
 - Docker & Docker Compose (optional, for containerized deployment)
 
 ## Quick Start
