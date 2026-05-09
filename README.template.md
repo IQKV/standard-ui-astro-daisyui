@@ -25,7 +25,7 @@
 - Build: <code>![CI](https://img.shields.io/github/actions/workflow/status/ORG/REPO/build-nodejs-project.yml?label=CI)</code>
 - License: <code>![License](https://img.shields.io/github/license/ORG/REPO)</code>
 - Node: <code>![Node](https://img.shields.io/badge/node-%3E%3D22.13.0-brightgreen)</code>
-- pnpm: <code>![pnpm](https://img.shields.io/badge/pnpm-%3E%3D11.0.8-orange)</code>
+- pnpm: <code>![pnpm](https://img.shields.io/badge/pnpm-%3E%3D10.33.2-orange)</code>
 
 </details>
 
@@ -53,7 +53,7 @@ Add a detailed introduction about the project here — what it does, who it is f
 ## Prerequisites
 
 - Node.js >= 22.13.0
-- pnpm >= 11.0.8
+- pnpm >= 10.33.2
 - Docker & Docker Compose (optional)
 
 ## Quick Start
