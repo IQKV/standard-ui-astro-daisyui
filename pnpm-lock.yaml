@@ -41,6 +41,9 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
+      daisyui:
+        specifier: ^5.7.4
+        version: 5.7.4
       framer-motion:
         specifier: ^12.42.2
         version: 12.42.2(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -84,9 +87,6 @@ importers:
       cz-conventional-changelog:
         specifier: ^3.3.0
         version: 3.3.0(@types/node@22.19.11)(typescript@6.0.3)
-      daisyui:
-        specifier: ^5.7.4
-        version: 5.7.4
       eslint:
         specifier: ^10.8.0
         version: 10.8.0(jiti@1.21.7)
