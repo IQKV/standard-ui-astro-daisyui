@@ -14,7 +14,7 @@ export function sanitizeText(value: string): string {
     allowedAttributes: {},
     // Decode HTML entities (e.g. &lt; → <) so the stored value is readable
     // plain text, not escaped HTML.
-    textFilter: (text) => text,
+    textFilter: (text: string) => text,
   }).trim();
 }
 
