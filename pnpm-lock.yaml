@@ -85,8 +85,8 @@ importers:
         specifier: ^3.3.0
         version: 3.3.0(@types/node@22.19.11)(typescript@6.0.3)
       daisyui:
-        specifier: ^5.7.0
-        version: 5.7.0
+        specifier: ^5.7.4
+        version: 5.7.4
       eslint:
         specifier: ^10.7.0
         version: 10.7.0(jiti@1.21.7)
@@ -2953,8 +2953,8 @@ packages:
     resolution: {integrity: sha512-U466fIzU5U22eES5lTNiNbZ+d8dfcHcssH4o7QsdWaCcRs/feIPCxKYSWkYBNs5mny7MvEfwpTLWjvbm94hecw==}
     engines: {node: '>= 10'}
 
-  daisyui@5.7.0:
-    resolution: {integrity: sha512-2/kYbxaKtv349lPrTyxMKC9SHsyA7fBULMSabJljDE82D079cjqz+UyAzsogWgy4sTs5NDvD000acfcFqbO1XA==}
+  daisyui@5.7.4:
+    resolution: {integrity: sha512-zKzFIwvEvn2QvE1TbUUtDnYFOqWoxeZh+j4QXfhkZKYAT++pO2ijyT9rkFm0GIPDWR1/oo9hHZzd96AsTK0iZg==}
 
   data-uri-to-buffer@6.0.2:
     resolution: {integrity: sha512-7hvf7/GW8e86rW0ptuwS3OcBGDjIi6SZva7hCyWC0yYry2cOPmLIjXAUHI6DK2HsnwJd9ifmt57i8eV2n4YNpw==}
@@ -8364,7 +8364,7 @@ snapshots:
       - '@types/node'
       - typescript
 
-  daisyui@5.7.0: {}
+  daisyui@5.7.4: {}
 
   data-uri-to-buffer@6.0.2: {}
 
