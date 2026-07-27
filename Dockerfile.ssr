@@ -1,0 +1,44 @@
+# ---------------------------------------------------------------------------
+# Astro SSR runtime image
+#
+# Expects the CI pipeline to have already run:
+#   1. pnpm install --frozen-lockfile          (full install for build)
+#   2. pnpm build                              (produces dist/)
+#   3. pnpm install --prod --ignore-scripts    (trims node_modules to prod only)
+#
+# This image simply copies the pre-built artifacts — no build tooling runs
+# inside Docker.
+# ---------------------------------------------------------------------------
+
+ARG BASE_IMAGE=node:24-alpine
+ARG APP_PORT=4321
+ARG WORKDIR=/opt/app
+
+ARG VCS_REFERENCE
+ARG BUILD_VERSION_REFERENCE
+
+FROM ${BASE_IMAGE}
+
+LABEL maintainer="maintainer@knowhowto.dev"
+
+ARG APP_PORT
+ARG WORKDIR
+ARG VCS_REFERENCE
+ARG BUILD_VERSION_REFERENCE
+
+ENV APPLICATION_VCS_REFERENCE=${VCS_REFERENCE}
+ENV APPLICATION_BUILD_VERSION=${BUILD_VERSION_REFERENCE}
+ENV HOST=0.0.0.0
+ENV PORT=${APP_PORT}
+ENV NODE_ENV=production
+
+WORKDIR ${WORKDIR}
+
+# Copy pre-built output and production node_modules from CI runner workspace
+COPY dist/ ./dist/
+COPY node_modules/ ./node_modules/
+COPY package.json ./
+
+EXPOSE ${APP_PORT}
+
+CMD ["node", "dist/server/entry.mjs"]

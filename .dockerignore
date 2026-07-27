@@ -1,14 +1,12 @@
-# Dependencies
-node_modules
+# Dependencies — node_modules is copied intentionally (prod-only, built by CI runner)
 .pnpm-store
 .npm
 package-lock.json
 yarn.lock
 
-# Build outputs (keep dist for Docker build)
-# dist - COMMENTED OUT: needed for Docker COPY
+# Build outputs
+# dist is included — built by the CI runner before docker build is invoked
 dist-ssr
-build
 coverage
 .tanstack
 
