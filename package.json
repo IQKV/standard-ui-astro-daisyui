@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "astro": "astro",
-    "build": "astro check && astro build",
+    "build": "astro build",
+    "check": "astro check",
     "dev": "astro dev",
     "formatter:check": "oxfmt --check",
     "formatter:write": "oxfmt --write",
