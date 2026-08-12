@@ -83,7 +83,7 @@ importers:
         version: 10.0.1(eslint@10.8.1(jiti@1.21.7))
       '@release-it/conventional-changelog':
         specifier: ^12.0.0
-        version: 12.0.0(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.4.0)(release-it@21.0.1(@types/node@22.19.11)(magicast@0.3.5))
+        version: 12.0.0(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.4.0)(release-it@21.0.2(@types/node@22.19.11)(magicast@0.3.5))
       cz-conventional-changelog:
         specifier: ^3.3.0
         version: 3.3.0(@types/node@22.19.11)(typescript@6.0.3)
@@ -124,11 +124,11 @@ importers:
         specifier: ^0.14.1
         version: 0.14.1
       release-it:
-        specifier: ^21.0.1
-        version: 21.0.1(@types/node@22.19.11)(magicast@0.3.5)
+        specifier: ^21.0.2
+        version: 21.0.2(@types/node@22.19.11)(magicast@0.3.5)
       release-it-pnpm:
         specifier: ^4.6.6
-        version: 4.6.6(magicast@0.3.5)(release-it@21.0.1(@types/node@22.19.11)(magicast@0.3.5))
+        version: 4.6.6(magicast@0.3.5)(release-it@21.0.2(@types/node@22.19.11)(magicast@0.3.5))
       sort-package-json:
         specifier: ^4.0.0
         version: 4.0.0
@@ -1129,6 +1129,13 @@ packages:
     peerDependencies:
       '@emnapi/core': ^1.7.1 || ^2.0.0-alpha.3
       '@emnapi/runtime': ^1.7.1 || ^2.0.0-alpha.3
+
+  '@napi-rs/wasm-runtime@1.2.3':
+    resolution: {integrity: sha512-UMduMbqO5s5zF2NkNacMT/yK5Y5QiKvWr2+50bzIIxFDwVJ2h49b+oyjaCGPhJxd2/gC2x39EHv/gHVuu36x2Q==}
+    engines: {node: ^20.19.0 || ^22.13.0 || >=23.5.0}
+    peerDependencies:
+      '@emnapi/core': ^1.7.1 || ^2.0.0-alpha.4
+      '@emnapi/runtime': ^1.7.1 || ^2.0.0-alpha.4
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -3421,8 +3428,8 @@ packages:
     resolution: {integrity: sha512-UjOaSel/iddGZJ5xP/Eixh6dY1XghiBw4XK13rCCIJcJfyhhoul/7KhLLUGtebEj6GDYM6Vnx/mVsjx2L/mFIA==}
     engines: {node: '>=12.0.0'}
 
-  ip-address@10.4.0:
-    resolution: {integrity: sha512-oSK96Grm3aP6OrS263xVxbNDGVL7rzBtYdpGqlDG8iQdoenDoTs/nkki+DflYbAEE8Xl6o5YxhxlrKvI3nqKXQ==}
+  ip-address@10.5.0:
+    resolution: {integrity: sha512-R5SnVLJmgYYvf2F2ZgwSBnelz5G4q5AxIC277GDfUaNbrZKNANcBC7RHqYYePlszf4kBolVkJauG0ZjHHFh55g==}
     engines: {node: '>= 12'}
 
   iron-webcrypto@1.2.1:
@@ -4345,8 +4352,8 @@ packages:
     peerDependencies:
       release-it: ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  release-it@21.0.1:
-    resolution: {integrity: sha512-xbPuv2tau3gb0Xw0NVqV3QjOhytFvbsBZDqzmURqlwtgNpFIlIbpDbuZG64ptytFOX4H/7k65bbPSLTwAL34/g==}
+  release-it@21.0.2:
+    resolution: {integrity: sha512-QwyDnWiQNB4d8Hc2b5FLMHcsKz9S2O1dMNnPB7w+0knsL5r8+qbnznDA1X7Bw5D863+Ud7eRHc71Cfth5Tlrgg==}
     engines: {node: ^22.21.0 || >=24.0.0}
     hasBin: true
 
@@ -6253,13 +6260,6 @@ snapshots:
       '@tybys/wasm-util': 0.10.3
     optional: true
 
-  '@napi-rs/wasm-runtime@1.2.2(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)':
-    dependencies:
-      '@emnapi/core': 1.10.0
-      '@emnapi/runtime': 1.10.0
-      '@tybys/wasm-util': 0.10.3
-    optional: true
-
   '@napi-rs/wasm-runtime@1.2.2(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)':
     dependencies:
       '@emnapi/core': 1.11.1
@@ -6271,6 +6271,13 @@ snapshots:
     dependencies:
       '@emnapi/core': 1.11.2
       '@emnapi/runtime': 1.11.3
+      '@tybys/wasm-util': 0.10.3
+    optional: true
+
+  '@napi-rs/wasm-runtime@1.2.3(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)':
+    dependencies:
+      '@emnapi/core': 1.10.0
+      '@emnapi/runtime': 1.10.0
       '@tybys/wasm-util': 0.10.3
     optional: true
 
@@ -6507,7 +6514,7 @@ snapshots:
     dependencies:
       quansync: 1.0.0
 
-  '@release-it/conventional-changelog@12.0.0(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.4.0)(release-it@21.0.1(@types/node@22.19.11)(magicast@0.3.5))':
+  '@release-it/conventional-changelog@12.0.0(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.4.0)(release-it@21.0.2(@types/node@22.19.11)(magicast@0.3.5))':
     dependencies:
       '@conventional-changelog/git-client': 3.1.0(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.4.0)
       concat-stream: 2.0.0
@@ -6515,7 +6522,7 @@ snapshots:
       conventional-changelog-angular: 9.2.1
       conventional-changelog-conventionalcommits: 10.2.1
       conventional-recommended-bump: 12.1.0
-      release-it: 21.0.1(@types/node@22.19.11)(magicast@0.3.5)
+      release-it: 21.0.2(@types/node@22.19.11)(magicast@0.3.5)
       semver: 7.8.5
     transitivePeerDependencies:
       - conventional-commits-filter
@@ -6669,7 +6676,7 @@ snapshots:
     dependencies:
       '@emnapi/core': 1.10.0
       '@emnapi/runtime': 1.10.0
-      '@napi-rs/wasm-runtime': 1.2.2(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)
+      '@napi-rs/wasm-runtime': 1.2.3(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)
     optional: true
 
   '@rolldown/binding-wasm32-wasi@1.1.5':
@@ -8441,7 +8448,7 @@ snapshots:
     transitivePeerDependencies:
       - '@types/node'
 
-  ip-address@10.4.0: {}
+  ip-address@10.5.0: {}
 
   iron-webcrypto@1.2.1: {}
 
@@ -9272,19 +9279,19 @@ snapshots:
     dependencies:
       regex-utilities: 2.3.0
 
-  release-it-pnpm@4.6.6(magicast@0.3.5)(release-it@21.0.1(@types/node@22.19.11)(magicast@0.3.5)):
+  release-it-pnpm@4.6.6(magicast@0.3.5)(release-it@21.0.2(@types/node@22.19.11)(magicast@0.3.5)):
     dependencies:
       bumpp: 10.4.1(magicast@0.3.5)
       changelogithub: 13.16.1(magicast@0.3.5)
       conventional-changelog-conventionalcommits: 9.3.1
       conventional-recommended-bump: 11.2.0
       kolorist: 1.8.0
-      release-it: 21.0.1(@types/node@22.19.11)(magicast@0.3.5)
+      release-it: 21.0.2(@types/node@22.19.11)(magicast@0.3.5)
       semver: 7.8.5
     transitivePeerDependencies:
       - magicast
 
-  release-it@21.0.1(@types/node@22.19.11)(magicast@0.3.5):
+  release-it@21.0.2(@types/node@22.19.11)(magicast@0.3.5):
     dependencies:
       '@inquirer/prompts': 8.5.2(@types/node@22.19.11)
       '@octokit/rest': 22.0.1
@@ -9612,7 +9619,7 @@ snapshots:
 
   socks@2.8.9:
     dependencies:
-      ip-address: 10.4.0
+      ip-address: 10.5.0
       smart-buffer: 4.2.0
 
   sort-object-keys@2.1.0: {}
